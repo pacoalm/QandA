@@ -3,10 +3,10 @@ import { QuestionData } from './QuestionData';
 
 interface Props {
   data: QuestionData;
-  showcontent: boolean;
+  showcontent?: boolean;
 }
 
-export const Question = ({ data, showcontent }: Props) => (
+export const Question = ({ data, showcontent = true }: Props) => (
   <div>
     <div>{data.title}</div>
     {/*Renderizado condicional */}
