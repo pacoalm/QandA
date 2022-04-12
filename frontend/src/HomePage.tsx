@@ -17,11 +17,15 @@ export const HomePage = () => {
     doGetUnsweredQuestions();
   }, []);
 
+  const handleAskQuestionClick = () => {
+    alert('TODO - move to the AskPage');
+  };
+
   return (
     <Page>
       <div>
         <PageTitle>Unanswered Questions</PageTitle>
-        <button>Ask a Question</button>
+        <button onClick={handleAskQuestionClick}>Ask a Question</button>
       </div>
       {questionsLoading ? (
         <div>Loading...</div>
