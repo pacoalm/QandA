@@ -1,12 +1,23 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import { gray3, gray6 } from './Styles';
+import {
+  gray3,
+  gray6,
+  Fieldset,
+  FieldContainer,
+  FieldLabel,
+  FieldTextArea,
+  FormButtonContainer,
+  PrimaryButton,
+  FieldError,
+} from './Styles';
 
 import React from 'react';
 import { Page } from './Page';
 import { useParams } from 'react-router-dom';
 import { QuestionData, getQuestion } from './QuestionsData';
 import { AnswerList } from './AnswerList';
+import { useForm } from 'react-hook-form';
 
 export const QuestionPage = () => {
   const [question, setQuestion] = React.useState<QuestionData | null>(null);
@@ -22,6 +33,14 @@ export const QuestionPage = () => {
       doGetQuestion(Number(questionId));
     }
   }, [questionId]);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => console.log(data);
 
   return (
     <Page>
@@ -65,6 +84,35 @@ export const QuestionPage = () => {
   ${question.created.toLocaleTimeString()}`}
             </div>
             <AnswerList data={question.answers} />
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              css={css`
+                margin-top: 20px;
+              `}
+            >
+              <Fieldset>
+                <FieldContainer>
+                  <FieldLabel htmlFor="content">Your Answer</FieldLabel>
+                  <FieldTextArea
+                    id="content"
+                    {...register('content', { required: true, minLength: 10 })}
+                  />
+                  {errors.content && errors.content.type === 'required' && (
+                    <FieldError>You must enter the answer</FieldError>
+                  )}
+                  {errors.content && errors.content.type === 'minLength' && (
+                    <FieldError>
+                      The answer must be at least 50 characters
+                    </FieldError>
+                  )}
+                </FieldContainer>
+                <FormButtonContainer>
+                  <PrimaryButton type="submit">
+                    Submit Your Answer
+                  </PrimaryButton>
+                </FormButtonContainer>
+              </Fieldset>
+            </form>
           </React.Fragment>
         )}
       </div>
