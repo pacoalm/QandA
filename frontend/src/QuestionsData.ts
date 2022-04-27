@@ -13,6 +13,13 @@ export interface AnswerData {
   created: Date;
 }
 
+export interface PostQuestionData {
+  title: string;
+  content: string;
+  userName: string;
+  created: Date;
+}
+
 const questions: QuestionData[] = [
   {
     questionId: 1,
@@ -74,4 +81,17 @@ export const searchQuestions = async (
       q.title.toLowerCase().indexOf(criteria.toLowerCase()) >= 0 ||
       q.content.toLowerCase().indexOf(criteria.toLowerCase()) >= 0,
   );
+};
+export const postQuestion = async (
+  question: PostQuestionData,
+): Promise<QuestionData | undefined> => {
+  await wait(500);
+  const questionId = Math.max(...questions.map((q) => q.questionId)) + 1;
+  const newQuestion: QuestionData = {
+    ...question,
+    questionId,
+    answers: [],
+  };
+  questions.push(newQuestion);
+  return newQuestion;
 };
