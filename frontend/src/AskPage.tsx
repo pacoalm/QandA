@@ -14,17 +14,19 @@ import {
 import { useForm } from 'react-hook-form';
 import { postQuestion } from './QuestionsData';
 
+type FormData = {
+  title: string;
+  content: string;
+};
+
 export const AskPage = () => {
-  const [successfullySubmitted, setSuccessfullySubmitted] =
-    React.useState(false);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm();
-
-  const onSubmit = async (data) => {
+  const { register, errors, handleSubmit, formState } = useForm<FormData>({
+    mode: 'onBlur',
+  });
+  const [successfullySubmitted, setSuccessfullySubmitted] = React.useState(
+    false,
+  );
+  const submitForm = async (data: FormData) => {
     const result = await postQuestion({
       title: data.title,
       content: data.content,
@@ -36,14 +38,18 @@ export const AskPage = () => {
 
   return (
     <Page title="Ask a question">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Fieldset disabled={isSubmitting || successfullySubmitted}>
+      <form onSubmit={handleSubmit(submitForm)}>
+        <Fieldset disabled={formState.isSubmitting || successfullySubmitted}>
           <FieldContainer>
             <FieldLabel htmlFor="title">Title</FieldLabel>
             <FieldInput
               id="title"
+              name="title"
               type="text"
-              {...register('title', { required: true, minLength: 10 })}
+              ref={register({
+                required: true,
+                minLength: 10,
+              })}
             />
             {errors.title && errors.title.type === 'required' && (
               <FieldError>You must enter the question title</FieldError>
@@ -56,7 +62,11 @@ export const AskPage = () => {
             <FieldLabel htmlFor="content">Content</FieldLabel>
             <FieldTextArea
               id="content"
-              {...register('content', { required: true, minLength: 50 })}
+              name="content"
+              ref={register({
+                required: true,
+                minLength: 50,
+              })}
             />
             {errors.content && errors.content.type === 'required' && (
               <FieldError>You must enter the question content</FieldError>
@@ -80,4 +90,5 @@ export const AskPage = () => {
     </Page>
   );
 };
+
 export default AskPage;

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\frodrigue53m\\Desktop\\Mern\\BookReactAspNetCore5\\Backend\\QandA\\QandA.csproj": {}
+    "C:\\Users\\frodrigue53m\\Desktop\\Mern\\BookReactAspNetCore5\\QandA\\Backend\\QandA\\QandA.csproj": {}
   },
   "projects": {
-    "C:\\Users\\frodrigue53m\\Desktop\\Mern\\BookReactAspNetCore5\\Backend\\QandA\\QandA.csproj": {
+    "C:\\Users\\frodrigue53m\\Desktop\\Mern\\BookReactAspNetCore5\\QandA\\Backend\\QandA\\QandA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\frodrigue53m\\Desktop\\Mern\\BookReactAspNetCore5\\Backend\\QandA\\QandA.csproj",
+        "projectUniqueName": "C:\\Users\\frodrigue53m\\Desktop\\Mern\\BookReactAspNetCore5\\QandA\\Backend\\QandA\\QandA.csproj",
         "projectName": "QandA",
-        "projectPath": "C:\\Users\\frodrigue53m\\Desktop\\Mern\\BookReactAspNetCore5\\Backend\\QandA\\QandA.csproj",
+        "projectPath": "C:\\Users\\frodrigue53m\\Desktop\\Mern\\BookReactAspNetCore5\\QandA\\Backend\\QandA\\QandA.csproj",
         "packagesPath": "C:\\Users\\frodrigue53m\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\frodrigue53m\\Desktop\\Mern\\BookReactAspNetCore5\\Backend\\QandA\\obj\\",
+        "outputPath": "C:\\Users\\frodrigue53m\\Desktop\\Mern\\BookReactAspNetCore5\\QandA\\Backend\\QandA\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,9 +44,21 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.123, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
+            },
+            "dbup": {
+              "target": "Package",
+              "version": "[4.5.0, )"
             }
           },
           "imports": [

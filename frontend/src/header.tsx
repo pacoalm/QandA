@@ -1,18 +1,23 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import { fontFamily, fontSize, gray1, gray2, gray5 } from './Styles';
+import React from 'react';
 import { UserIcon } from './Icons';
 import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
+type FormData = {
+  search: string;
+};
+
 export const Header = () => {
   const navigate = useNavigate();
-  const { register, handleSubmit, getValues } = useForm();
+  const { register, handleSubmit } = useForm<FormData>();
   const [searchParams] = useSearchParams();
   const criteria = searchParams.get('criteria') || '';
 
-  const submitForm = (data) => {
-    navigate(`search?criteria=${getValues('search')}`);
+  const submitForm = ({ search }: FormData) => {
+    navigate(`search?criteria=${search}`);
   };
 
   return (
@@ -44,6 +49,8 @@ export const Header = () => {
       </Link>
       <form onSubmit={handleSubmit(submitForm)}>
         <input
+          ref={register}
+          name="search"
           type="text"
           placeholder="Search..."
           defaultValue={criteria}
@@ -62,7 +69,6 @@ export const Header = () => {
               outline-color: ${gray5};
             }
           `}
-          {...register('search', { required: true })}
         />
       </form>
       <Link

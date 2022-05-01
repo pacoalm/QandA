@@ -38,6 +38,7 @@ export const PrimaryButton = styled.button`
     cursor: not-allowed;
   }
 `;
+
 export const Fieldset = styled.fieldset`
   margin: 10px auto 0 auto;
   padding: 30px;
@@ -47,12 +48,15 @@ export const Fieldset = styled.fieldset`
   border: 1px solid ${gray5};
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.16);
 `;
+
 export const FieldContainer = styled.div`
   margin-bottom: 10px;
 `;
+
 export const FieldLabel = styled.label`
   font-weight: bold;
 `;
+
 const baseFieldCSS = css`
   box-sizing: border-box;
   font-family: ${fontFamily};
@@ -71,22 +75,27 @@ const baseFieldCSS = css`
     background-color: ${gray6};
   }
 `;
+
 export const FieldInput = styled.input`
   ${baseFieldCSS}
 `;
+
 export const FieldTextArea = styled.textarea`
   ${baseFieldCSS}
   height: 100px;
 `;
+
 export const FieldError = styled.div`
   font-size: 12px;
   color: red;
 `;
+
 export const FormButtonContainer = styled.div`
   margin: 30px 0px 0px 0px;
   padding: 20px 0px 0px 0px;
   border-top: 1px solid ${gray5};
 `;
+
 export const SubmissionSuccess = styled.div`
   margin-top: 10px;
   color: green;

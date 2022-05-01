@@ -13,13 +13,6 @@ export interface AnswerData {
   created: Date;
 }
 
-export interface PostQuestionData {
-  title: string;
-  content: string;
-  userName: string;
-  created: Date;
-}
-
 const questions: QuestionData[] = [
   {
     questionId: 1,
@@ -82,6 +75,14 @@ export const searchQuestions = async (
       q.content.toLowerCase().indexOf(criteria.toLowerCase()) >= 0,
   );
 };
+
+export interface PostQuestionData {
+  title: string;
+  content: string;
+  userName: string;
+  created: Date;
+}
+
 export const postQuestion = async (
   question: PostQuestionData,
 ): Promise<QuestionData | undefined> => {
