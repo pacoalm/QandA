@@ -94,7 +94,7 @@ namespace QandA.Data
             }
         }
 
-        AnswerGetResponse IDataRepository.PostAnswer(AnswerPostRequest answer)
+        AnswerGetResponse IDataRepository.PostAnswer(AnswerPostFullRequest answer)
         {
             using (var connection = new SqlConnection(_connectionString)) { 
                 connection.Open();
@@ -104,7 +104,7 @@ namespace QandA.Data
             }
         }
 
-        QuestionGetSingleResponse IDataRepository.PostQuestion(QuestionPostRequest question)
+        QuestionGetSingleResponse IDataRepository.PostQuestion(QuestionPostFullRequest question)
         {
 
             using (var connection = new SqlConnection(_connectionString))

@@ -1,0 +1,53 @@
+ Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
+        '  SignWithThisCert()
+
+        Dim colEmpresas As New List(Of Empresa)
+        'Dim Request As WebRequest = WebRequest.Create("https://localhost:5001/api/companies")
+        Dim Request As WebRequest = WebRequest.Create("http://192.168.7.99:5000/api/getCamas")
+
+        Dim Response As WebResponse = Request.GetResponse()
+
+        Debug.Print(CType(Response, HttpWebResponse).StatusDescription)
+
+
+
+        Dim dataStream As Stream = Response.GetResponseStream
+
+        Dim reader As New StreamReader(dataStream)
+
+        Dim respuesta As String = reader.ReadToEnd
+
+
+        colEmpresas = JsonSerializer.Deserialize(respuesta, colEmpresas.GetType)
+
+
+        MsgBox(colEmpresas.Count)
+
+
+
+        reader.Close()
+
+        Response.Close()
+
+
+        'Agregar una nueva empresa
+        Dim colNuevaEmpresa As New List(Of NuevaEmpresa)
+
+        Dim NuevaEmpresa1 = New NuevaEmpresa
+        NuevaEmpresa1.name = "HOSPITAL DEL ALJARAFE"
+        NuevaEmpresa1.Address = "ALJARAFE"
+        NuevaEmpresa1.Country = "SPAIN"
+
+        Dim JsonString As String = Newtonsoft.Json.JsonConvert.SerializeObject(NuevaEmpresa1)
+        Dim content = New StringContent(JsonString, Encoding.UTF8, "application/json")
+        Dim client As New HttpClient
+        Dim url As String = "https://localhost:5001/api/companies"
+        'Dim url As String = "http://192.168.7.99:5000/api/getCamas"
+        Dim result = client.PostAsync(url, content).Result
+
+
+
+
+
+
+    End Sub
