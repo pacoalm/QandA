@@ -13,6 +13,7 @@ namespace QandA.Data.Models
         public string Content { get; set; }
         public string UserName { get; set; }
         public DateTime Created { get; set; }
+        public List<AnswerGetResponse> Answers { get; set; }
     }
 
     public class QuestionGetSingleResponse

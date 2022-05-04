@@ -15,4 +15,3 @@ namespace QandA.Data.Models
     }
 
 }
-}
