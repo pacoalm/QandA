@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "r8VZdKlvBl3vHoP0YPsRBlKVpY8H1JvTPSrdgqmEPzaRSldau3gy54Co2/HLuKKSvj5/vZPpT0AdHe/vSMDWqQ==",
+  "dgSpecHash": "3dyjE3Zt3x3vF8iOqVdqaSFi8AgoWdD32gg8IjAvgEedt+mJuKBDkk2L93LIBn69OxfWqKTtDHMQlT8d9wRHEA==",
   "success": true,
   "projectFilePath": "C:\\Users\\frodrigue53m\\Desktop\\Mern\\BookReactAspNetCore5\\QandA\\Backend\\QandA\\QandA.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\frodrigue53m\\.nuget\\packages\\dbup\\4.5.0\\dbup.4.5.0.nupkg.sha512",
     "C:\\Users\\frodrigue53m\\.nuget\\packages\\dbup-core\\4.5.0\\dbup-core.4.5.0.nupkg.sha512",
     "C:\\Users\\frodrigue53m\\.nuget\\packages\\dbup-sqlserver\\4.5.0\\dbup-sqlserver.4.5.0.nupkg.sha512",
+    "C:\\Users\\frodrigue53m\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.16\\microsoft.aspnetcore.authentication.jwtbearer.5.0.16.nupkg.sha512",
     "C:\\Users\\frodrigue53m\\.nuget\\packages\\microsoft.azure.services.appauthentication\\1.3.1\\microsoft.azure.services.appauthentication.1.3.1.nupkg.sha512",
     "C:\\Users\\frodrigue53m\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.0.0\\microsoft.bcl.asyncinterfaces.1.0.0.nupkg.sha512",
     "C:\\Users\\frodrigue53m\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
